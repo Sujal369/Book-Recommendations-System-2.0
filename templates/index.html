@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Recommendation System</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1c2541, #2a3549); /* Updated background with gradient */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            flex-direction: column; /* Align content in a column */
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.95); /* Added semi-transparent white background */
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Reduced box shadow for subtlety */
+            max-width: 800px; /* Increased max-width for a wider layout */
+            width: 90%; /* Adjusted width for responsiveness */
+            text-align: center;
+        }
+        h1 {
+            color: #394867; /* Changed title color to dark blue */
+            font-size: 36px; /* Increased font size for emphasis */
+            margin-bottom: 30px; /* Increased margin bottom for spacing */
+        }
+        .book-container {
+            display: flex;
+            flex-wrap: wrap; /* Allow items to wrap */
+            justify-content: center; /* Align items in the center */
+            margin-top: 20px; /* Added margin-top for spacing */
+        }
+        .book-item {
+            margin: 15px; /* Added more spacing between items */
+            width: calc(20% - 30px); /* Adjust width for smaller size and 5 items in a row */
+            border-radius: 10px; /* Added border-radius for a rounded look */
+            overflow: hidden; /* Hide overflow for cleaner appearance */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Added subtle box shadow for depth */
+            transition: transform 0.3s ease; /* Added transition for hover effect */
+        }
+        .book-item:hover {
+            transform: translateY(-5px); /* Apply slight translation on hover */
+        }
+        .book-item img {
+            width: 100%; /* Make sure images fill their container */
+            border-top-left-radius: 10px; /* Added border radius for top-left */
+            border-top-right-radius: 10px; /* Added border radius for top-right */
+        }
+        .book-details {
+            padding: 15px; /* Added padding for inner content */
+            background-color: #f0f0f0; /* Added background color for contrast */
+        }
+        .text-black {
+            color: #394867; /* Changed text color to dark blue */
+            margin: 5px 0; /* Added margin for spacing */
+            font-weight: bold; /* Added font weight for emphasis */
+        }
+        .text-gray {
+            color: #666; /* Changed text color to gray */
+            margin: 5px 0; /* Added margin for spacing */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Book Recommendation System</h1>
+        <form action="/recommendations" method="post">
+            <input type="text" id="book_name" name="book_name" placeholder="Enter a book name e.g. To Kill a Mockingbird" style="padding: 10px; width: 70%; border-radius: 5px; border: 1px solid #ccc;">
+            <input type="submit" value="Recommend" style="padding: 10px 20px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s ease;">
+        </form>
+    </div>
+
+    <div class="book-container">
+        {% for i in range(book_name | length) %}
+        <div class="book-item">
+            <img src="{{ image[i] }}">
+            <div class="book-details">
+                <p class="text-black">{{ book_name[i] }}</p>
+                <p class="text-gray">{{ author[i] }}</p>
+                <p class="text-gray">Votes - {{ votes[i] }}</p>
+                <p class="text-gray">Rating - {{ rating[i] }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

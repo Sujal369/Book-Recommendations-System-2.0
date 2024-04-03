@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommended Books</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #000;
+            margin: 0;
+            padding: 0;
+            color: #fff; /* Changed text color to white */
+        }
+        h1 {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 36px; /* Increased title font size */
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 auto;
+            max-width: 900px; /* Increased max-width */
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        li {
+            background-color: #222;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Increased box-shadow for depth */
+            margin: 20px;
+            padding: 20px;
+            width: 250px;
+            text-align: center;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Added transition for smooth hover effect */
+            cursor: pointer; /* Added cursor pointer */
+        }
+        li:hover {
+            transform: translateY(-5px) scale(1.05); /* Slight scale transformation on hover */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Changed box-shadow on hover for depth */
+        }
+        h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            transition: color 0.3s ease-in-out; /* Added transition for smooth color change */
+        }
+        p {
+            color: #ccc;
+            margin-bottom: 15px;
+        }
+        img {
+            max-width: 200px;
+            max-height: 200px;
+            margin: 0 auto;
+            display: block;
+            transition: transform 0.3s ease-in-out; /* Added transition for smooth image transformation */
+        }
+        /* Added hover effect for book title */
+        h2:hover {
+            color: #4CAF50; /* Change color on hover */
+        }
+        li:hover img {
+            transform: scale(1.1); /* Scale up image on hover */
+        }
+    </style>
+</head>
+<body>
+    <h1>Recommended Books</h1>
+    <ul>
+        {% for book in recommended_books %}
+            <li>
+                <h2>{{ book[0] }}</h2>
+                <p>Author: {{ book[1] }}</p>
+                <img src="{{ book[2] }}" alt="{{ book[0] }}">
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
