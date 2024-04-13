@@ -21,7 +21,8 @@ Learnings :
 5. Flask
 
 6. Consine Similarity Algorithm
+   Cosine similarity is a measure of similarity between two non-zero vectors of an inner product space based on the cosine of the angle between them, resulting in a value between -1 and 1. The value -1 means that the vectors are opposite, 0 represents orthogonal vectors, and value 1 signifies similar vectors.
 
-7. Html,Css as Front End
+8. Html,Css as Front End
 
-8. Data Filtering and dataset merging
+9. Data Filtering and dataset merging
